@@ -1,0 +1,87 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+.currentField {
+  background-color: #0b3142;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: aliceblue;
+  padding: 10px;
+  padding-top: 25px;
+  h1 {
+    position: relative;
+    font-size: 4rem;
+  }
+  h2.location {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #eae8f6;
+    letter-spacing: 1.1px;
+    line-height: 0.5;
+  }
+  h3.lastUpdated {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  h3.condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #eae8f6;
+    font-size: 1.2rem;
+  }
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #d6d3f0;
+  flex: 40% 0 0;
+  min-height: 40vh;
+  h2 {
+    color: #0b3142;
+  }
+}
+table.currentDetails {
+  display: block;
+  flex: 59.99% 0 0;
+  tbody{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  tr{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    &:nth-child(even){
+      background-color: #e1e5f2;
+    }
+    td{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      flex: 50% 0 0;
+      color: #0b3142;
+      font-weight: 500;
+    }
+  }
+}

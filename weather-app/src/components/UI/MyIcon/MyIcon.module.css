@@ -1,0 +1,10 @@
+.myIcon{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
+.myIcon img{
+    width: 30px;
+}
