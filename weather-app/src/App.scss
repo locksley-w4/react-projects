@@ -10,7 +10,7 @@
   flex-wrap: wrap;
 }
 .currentField {
-  background-color: #0b3142;
+  background-color: #60abab;
   width: 100%;
   height: 60vh;
   position: relative;
@@ -49,39 +49,164 @@
 .inputForm {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+  justify-content: space-between;
+  // flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
-  background-color: #d6d3f0;
-  flex: 40% 0 0;
-  min-height: 40vh;
-  h2 {
-    color: #0b3142;
+  background-color: #bde0fe;
+  flex: 40% 1 1;
+  min-height: 45vh;
+  padding: 15px;
+  transition: 0.5s ease-out all;
+  h3 {
+    color: #044f71;
+    text-align: center;
+  }
+  .queryInput {
+    flex: 0 1 100%;
+    margin-left: auto;
   }
 }
-table.currentDetails {
+table {
   display: block;
-  flex: 59.99% 0 0;
-  tbody{
+  tbody {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
   }
-  tr{
+  tr {
     padding: 5px;
-    width: 100%;
     display: flex;
-    &:nth-child(even){
-      background-color: #e1e5f2;
-    }
-    td{
+    td {
       display: flex;
       text-align: center;
       justify-content: center;
+    }
+  }
+}
+table.currentDetails {
+  flex: 59.99% 0 0;
+  max-width: 60%;
+  tr {
+    background-color: #e4f3ff;
+    &:nth-child(odd) {
+      background-color: #a8dadc;
+    }
+    td {
       flex: 50% 0 0;
-      color: #0b3142;
+      color: #044f71;
       font-weight: 500;
     }
+
+    &.hourlyData {
+      flex: auto 1 1;
+      display: flex;
+      justify-content: space-between;
+      overflow-x: auto;
+      max-height: 150px;
+      gap: 5px;
+
+      td {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 5px;
+        flex-direction: column;
+        font-size: 13px;
+        flex: 1 0 40px;
+        margin-right: 20px;
+        span.cond {
+          flex: 1 1 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-button,
+      &::-webkit-scrollbar-track-piece {
+        appearance: none;
+        width: 100%;
+        height: 7px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #60abab;
+      }
+      &::-webkit-scrollbar-thumb {
+        appearance: none;
+        background-color: #386464;
+        width: 20px;
+      }
+    }
+  }
+}
+.dailyForecast {
+  display: flex;
+  flex-direction: column;
+  flex: 100% 0 0;
+  ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-between;
+    background-color: #a8dadc;
+    color: #044f71;
+    font-weight: 600;
+    &:nth-child(even) {
+      background-color: #bde0fe;
+    }
+    li {
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      &.forecastText {
+        margin: auto;
+        width: "40%";
+        text-align: center;
+      }
+    }
+    // .v-divider{
+    //   height: 60%;
+    //   width: 1px;
+    //   background-color: #1d6d92;
+    //   margin: 0 5px;
+    // }
+  }
+}
+@media screen and (max-width: 955px) {
+  .queryInput {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 765px) {
+  table.currentDetails {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .inputForm {
+    overflow-y: hidden;
+    height: 60px;
+    flex-basis: 100%;
+    min-height: 0;
+    #query {
+      flex: 0 0 60%;
+    }
+    &:hover {
+      height: 30vh;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .dailyForecast ul li.forecastText {
+    font-size: .9rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  #query {
+    width: 70%;
+    // font-size: 0.9rem;
   }
 }

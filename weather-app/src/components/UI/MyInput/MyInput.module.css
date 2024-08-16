@@ -2,13 +2,13 @@
     appearance: none;
     padding: 5px 10px;
     outline: none;
-    background-color: #C6B9CD;
-    color: #0B3142;
+    background-color: #60abab;
+    color: aliceblue;
     font-weight: 500;
     font-size: 20px;
     border-radius: 20px;
     border: none;
     &::placeholder{
-        color: #9C92A3;
+        color: aliceblue;
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import cl from "./MyIcon.module.css";
 
-const MyIcon = ({url, alt}) => {
+const MyIcon = ({url, alt, ...props}) => {
     return (
-        <span className={cl.myIcon} >
+        <span {...props} className={cl.myIcon} >
             <img src={url} alt={alt ?? ""}/>
         </span>
     );

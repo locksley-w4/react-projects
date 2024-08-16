@@ -4,14 +4,15 @@ import WeatherAPI from "./API/WeatherAPI.js";
 import Current from "./components/Current.jsx";
 import InputForm from "./components/InputForm.jsx";
 import CurrentDetails from "./components/CurrentDetails.jsx";
+import DailyForecast from "./components/DailyForecast.jsx";
 
 function App() {
   const [weather, setWeather] = useState({});
-  const [query, setQuery] = useState("")
+  const [params, setParams] = useState({query: "", lang: "", days: 5});
 
   async function fetchData() {
     try {
-      setWeather({ ...weather, ...(await WeatherAPI.getWeather(query)) });
+      setWeather({ ...weather, ...(await WeatherAPI.getWeather(params)) });
     } catch (error) {
       console.error(error);
     }
@@ -24,9 +25,10 @@ function App() {
 
   return (
     <div className="App">
-      <Current weather={weather}/>
-      <InputForm query={query} setQuery={setQuery} updateFnc={fetchData}/>
-      <CurrentDetails weather={weather}/>
+      <Current weather={weather}  lang={params.lang}/>
+      <InputForm params={params} setParams={setParams} updateFnc={fetchData}/>
+      <CurrentDetails weather={weather} lang={params.lang}/>
+      <DailyForecast weather={weather}/>
     </div>
   );
 }
